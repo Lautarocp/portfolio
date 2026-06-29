@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lautaro Pomposiello — Full Stack Developer</title>
+  <meta name="description" content="Full Stack Developer based in Barcelona. React, NestJS, TypeScript, PostgreSQL, Docker." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: '#3b82f6',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    html { background: #0a0a0a; }
+    .gradient-text {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(59,130,246,0.4);
+    }
+    .tag {
+      background: rgba(59,130,246,0.12);
+      border: 1px solid rgba(59,130,246,0.25);
+      color: #93c5fd;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .tag-purple {
+      background: rgba(139,92,246,0.12);
+      border: 1px solid rgba(139,92,246,0.25);
+      color: #c4b5fd;
+    }
+    .tag-green {
+      background: rgba(34,197,94,0.10);
+      border: 1px solid rgba(34,197,94,0.2);
+      color: #86efac;
+    }
+    .dot { background: #3b82f6; }
+    .dot-green { background: #22c55e; }
+    section { scroll-margin-top: 72px; }
+    .nav-link {
+      color: #9ca3af;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: #fff; }
+    .btn-primary {
+      background: #3b82f6;
+      color: #fff;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #2563eb; transform: translateY(-1px); }
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #d1d5db;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover { border-color: #3b82f6; color: #fff; transform: translateY(-1px); }
+    .timeline-line { border-left: 2px solid rgba(255,255,255,0.08); }
+    .skill-bar-bg { background: rgba(255,255,255,0.06); }
+    .skill-bar { background: linear-gradient(90deg, #3b82f6, #8b5cf6); }
+    ::selection { background: rgba(59,130,246,0.35); color: #fff; }
+  </style>
+</head>
+<body class="bg-[#0a0a0a] text-gray-100 font-sans antialiased">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5" style="background: rgba(10,10,10,0.85); backdrop-filter: blur(12px);">
+    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+      <span class="font-mono text-sm text-blue-400 font-medium">lautaro.dev</span>
+      <div class="hidden sm:flex items-center gap-8">
+        <a href="#about" class="nav-link text-sm">About</a>
+        <a href="#projects" class="nav-link text-sm">Projects</a>
+        <a href="#experience" class="nav-link text-sm">Experience</a>
+        <a href="#skills" class="nav-link text-sm">Skills</a>
+        <a href="#contact" class="nav-link text-sm">Contact</a>
+      </div>
+      <a href="mailto:lautarocp20@gmail.com" class="btn-primary text-sm px-4 py-2 rounded-lg font-medium">
+        Hire me
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="about" class="pt-40 pb-28 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex items-center gap-2 mb-6">
+        <span class="w-2 h-2 rounded-full dot-green animate-pulse"></span>
+        <span class="text-sm text-green-400 font-medium">Available for work</span>
+      </div>
+      <h1 class="text-5xl sm:text-6xl font-extrabold leading-tight mb-4">
+        Lautaro<br />
+        <span class="gradient-text">Pomposiello</span>
+      </h1>
+      <p class="text-xl text-gray-400 font-medium mb-3">Full Stack Developer</p>
+      <p class="text-gray-500 text-base max-w-xl mb-10 leading-relaxed">
+        Building robust web applications with TypeScript, React, and Node.js.
+        Based in Barcelona — open to remote, EU, and Mercosur opportunities.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="#projects" class="btn-primary px-6 py-3 rounded-xl font-semibold text-sm">
+          View projects →
+        </a>
+        <a href="https://github.com/Lautarocp" target="_blank" rel="noopener" class="btn-outline px-6 py-3 rounded-xl font-semibold text-sm flex items-center gap-2">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="mailto:lautarocp20@gmail.com" class="btn-outline px-6 py-3 rounded-xl font-semibold text-sm flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          lautarocp20@gmail.com
+        </a>
+      </div>
+
+      <!-- Quick stats -->
+      <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="card rounded-xl p-5">
+          <p class="text-3xl font-bold text-white">2</p>
+          <p class="text-sm text-gray-500 mt-1">Live projects</p>
+        </div>
+        <div class="card rounded-xl p-5">
+          <p class="text-3xl font-bold text-white">6+</p>
+          <p class="text-sm text-gray-500 mt-1">Technologies</p>
+        </div>
+        <div class="card rounded-xl p-5">
+          <p class="text-3xl font-bold text-white">2</p>
+          <p class="text-sm text-gray-500 mt-1">Languages</p>
+        </div>
+        <div class="card rounded-xl p-5">
+          <p class="text-3xl font-bold text-white">EU</p>
+          <p class="text-sm text-gray-500 mt-1">Work permit</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-24 px-6 border-t border-white/5">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-blue-400 font-mono text-sm mb-2">// projects</p>
+      <h2 class="text-3xl font-bold text-white mb-12">What I've built</h2>
+
+      <!-- PMS — Featured -->
+      <div class="card rounded-2xl p-8 mb-6 relative overflow-hidden">
+        <div class="absolute top-4 right-4">
+          <span class="text-xs bg-blue-500/20 border border-blue-500/30 text-blue-400 px-2 py-1 rounded-full font-mono">Featured</span>
+        </div>
+        <div class="flex items-start gap-4 mb-5">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/15 flex items-center justify-center text-2xl flex-shrink-0">🏢</div>
+          <div>
+            <h3 class="text-xl font-bold text-white">Property Management System</h3>
+            <p class="text-gray-400 text-sm mt-1">Full-stack web app for managing residential properties</p>
+          </div>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+          Multi-tenant PMS handling apartment complexes, leases, tenants, payments, maintenance requests, and financial reporting. Built a complete REST API with NestJS + Prisma, and a React dashboard with real-time filters, i18n (EN/ES), role-based auth, and PDF generation. Deployed via Docker Compose on a self-hosted Linux server.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-4 mb-6 text-sm text-gray-400">
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2"><span class="text-blue-400">▸</span> JWT auth + role-based access control</li>
+            <li class="flex items-center gap-2"><span class="text-blue-400">▸</span> Itemized payments with partial pay support</li>
+            <li class="flex items-center gap-2"><span class="text-blue-400">▸</span> Lease transfer & termination with deposit logic</li>
+          </ul>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2"><span class="text-blue-400">▸</span> Revenue charts & outstanding balance reports</li>
+            <li class="flex items-center gap-2"><span class="text-blue-400">▸</span> Maintenance tracking with cost assignment</li>
+            <li class="flex items-center gap-2"><span class="text-blue-400">▸</span> One-click monthly billing generation</li>
+          </ul>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="tag text-xs px-2 py-1 rounded-md">React 18</span>
+          <span class="tag text-xs px-2 py-1 rounded-md">NestJS 10</span>
+          <span class="tag text-xs px-2 py-1 rounded-md">TypeScript</span>
+          <span class="tag text-xs px-2 py-1 rounded-md">Prisma ORM</span>
+          <span class="tag text-xs px-2 py-1 rounded-md">PostgreSQL</span>
+          <span class="tag text-xs px-2 py-1 rounded-md">Docker</span>
+          <span class="tag text-xs px-2 py-1 rounded-md">Tailwind CSS</span>
+          <span class="tag text-xs px-2 py-1 rounded-md">TanStack Query</span>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="https://pms-mock.vercel.app" target="_blank" rel="noopener"
+             class="btn-primary text-sm px-4 py-2 rounded-lg font-semibold flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            Live Demo
+          </a>
+          <a href="https://github.com/Lautarocp/pms-mock" target="_blank" rel="noopener"
+             class="btn-outline text-sm px-4 py-2 rounded-lg font-semibold flex items-center gap-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            View Code
+          </a>
+        </div>
+      </div>
+
+      <!-- EtiquetasCaducidad -->
+      <div class="card rounded-2xl p-8 mb-6">
+        <div class="flex items-start gap-4 mb-5">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/15 flex items-center justify-center text-2xl flex-shrink-0">🖨️</div>
+          <div>
+            <h3 class="text-xl font-bold text-white">Expiry Label Printer</h3>
+            <p class="text-gray-400 text-sm mt-1">IoT web app running on a Raspberry Pi</p>
+          </div>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+          Flask server running on a Raspberry Pi that acts as a WiFi access point. Mobile devices connect, open a browser, and print thermal expiry labels on a receipt printer via ESC/POS. Supports USB, network (TCP 9100), and RS-232 backends. Includes a web UI for managing product presets, configuring network interfaces, and switching printer connections — all without SSH.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-4 mb-6 text-sm text-gray-400">
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2"><span class="text-purple-400">▸</span> RPi as WiFi AP — no router needed</li>
+            <li class="flex items-center gap-2"><span class="text-purple-400">▸</span> ESC/POS thermal printing (USB, Net, RS-232)</li>
+            <li class="flex items-center gap-2"><span class="text-purple-400">▸</span> Web-based product preset manager</li>
+          </ul>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2"><span class="text-purple-400">▸</span> Network interface config from the browser</li>
+            <li class="flex items-center gap-2"><span class="text-purple-400">▸</span> systemd service — auto-starts on boot</li>
+            <li class="flex items-center gap-2"><span class="text-purple-400">▸</span> Days/months expiry with calendar logic</li>
+          </ul>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="tag tag-purple text-xs px-2 py-1 rounded-md">Python</span>
+          <span class="tag tag-purple text-xs px-2 py-1 rounded-md">Flask</span>
+          <span class="tag tag-purple text-xs px-2 py-1 rounded-md">Raspberry Pi</span>
+          <span class="tag tag-purple text-xs px-2 py-1 rounded-md">ESC/POS</span>
+          <span class="tag tag-purple text-xs px-2 py-1 rounded-md">Linux / systemd</span>
+          <span class="tag tag-purple text-xs px-2 py-1 rounded-md">NetworkManager</span>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="https://github.com/Lautarocp/EtiquetasCaducidad-rpi" target="_blank" rel="noopener"
+             class="btn-outline text-sm px-4 py-2 rounded-lg font-semibold flex items-center gap-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            View Code
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="py-24 px-6 border-t border-white/5">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-blue-400 font-mono text-sm mb-2">// experience</p>
+      <h2 class="text-3xl font-bold text-white mb-12">Background</h2>
+
+      <div class="timeline-line pl-8 space-y-10 ml-3">
+
+        <!-- SoyHenry -->
+        <div class="relative">
+          <div class="absolute -left-10 top-1 w-4 h-4 rounded-full dot border-2 border-[#0a0a0a]"></div>
+          <div class="flex items-start justify-between flex-wrap gap-2 mb-2">
+            <div>
+              <h3 class="text-base font-bold text-white">Full Stack Developer — SoyHenry Bootcamp</h3>
+              <p class="text-sm text-blue-400">Education</p>
+            </div>
+            <span class="text-xs text-gray-500 font-mono">Mar 2025 – Present</span>
+          </div>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Intensive full-stack program covering TypeScript, React, Node.js, NestJS, PostgreSQL, MongoDB, and Docker. Built end-to-end projects including the Property Management System. Covered REST API design, database modeling, authentication, testing, and deployment.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="tag text-xs px-2 py-0.5 rounded-md">TypeScript</span>
+            <span class="tag text-xs px-2 py-0.5 rounded-md">React</span>
+            <span class="tag text-xs px-2 py-0.5 rounded-md">NestJS</span>
+            <span class="tag text-xs px-2 py-0.5 rounded-md">PostgreSQL</span>
+            <span class="tag text-xs px-2 py-0.5 rounded-md">Docker</span>
+          </div>
+        </div>
+
+        <!-- Gorillas -->
+        <div class="relative">
+          <div class="absolute -left-10 top-1 w-4 h-4 rounded-full bg-gray-700 border-2 border-[#0a0a0a]"></div>
+          <div class="flex items-start justify-between flex-wrap gap-2 mb-2">
+            <div>
+              <h3 class="text-base font-bold text-white">Team Supervisor — Gorillas</h3>
+              <p class="text-sm text-gray-500">Berlin, Germany</p>
+            </div>
+            <span class="text-xs text-gray-500 font-mono">2021 – 2022</span>
+          </div>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Led warehouse teams in a high-pressure, fast-moving logistics operation. Responsible for shift coordination, performance tracking, and on-the-ground problem solving. Developed strong operational and team management skills in a startup environment.
+          </p>
+        </div>
+
+        <!-- The One Hotel -->
+        <div class="relative">
+          <div class="absolute -left-10 top-1 w-4 h-4 rounded-full bg-gray-700 border-2 border-[#0a0a0a]"></div>
+          <div class="flex items-start justify-between flex-wrap gap-2 mb-2">
+            <div>
+              <h3 class="text-base font-bold text-white">Hospitality — The One Hotel</h3>
+              <p class="text-sm text-gray-500">Barcelona, Spain</p>
+            </div>
+            <span class="text-xs text-gray-500 font-mono">Previous</span>
+          </div>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Customer-facing role in a high-end hotel environment. Built communication, attention to detail, and service excellence skills across international guests.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-24 px-6 border-t border-white/5">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-blue-400 font-mono text-sm mb-2">// skills</p>
+      <h2 class="text-3xl font-bold text-white mb-12">Tech stack</h2>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="card rounded-xl p-6">
+          <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Frontend</h3>
+          <div class="space-y-2">
+            <span class="tag block text-xs px-2 py-1.5 rounded-md text-center">React 18</span>
+            <span class="tag block text-xs px-2 py-1.5 rounded-md text-center">TypeScript</span>
+            <span class="tag block text-xs px-2 py-1.5 rounded-md text-center">Tailwind CSS</span>
+            <span class="tag block text-xs px-2 py-1.5 rounded-md text-center">TanStack Query</span>
+            <span class="tag block text-xs px-2 py-1.5 rounded-md text-center">React Router 6</span>
+            <span class="tag block text-xs px-2 py-1.5 rounded-md text-center">Zustand</span>
+            <span class="tag block text-xs px-2 py-1.5 rounded-md text-center">Vite</span>
+          </div>
+        </div>
+
+        <div class="card rounded-xl p-6">
+          <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Backend</h3>
+          <div class="space-y-2">
+            <span class="tag tag-purple block text-xs px-2 py-1.5 rounded-md text-center">NestJS 10</span>
+            <span class="tag tag-purple block text-xs px-2 py-1.5 rounded-md text-center">Node.js</span>
+            <span class="tag tag-purple block text-xs px-2 py-1.5 rounded-md text-center">Prisma ORM</span>
+            <span class="tag tag-purple block text-xs px-2 py-1.5 rounded-md text-center">REST API</span>
+            <span class="tag tag-purple block text-xs px-2 py-1.5 rounded-md text-center">JWT Auth</span>
+            <span class="tag tag-purple block text-xs px-2 py-1.5 rounded-md text-center">Python / Flask</span>
+          </div>
+        </div>
+
+        <div class="card rounded-xl p-6">
+          <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Infrastructure</h3>
+          <div class="space-y-2">
+            <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">PostgreSQL 15</span>
+            <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">MongoDB</span>
+            <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">Docker / Compose</span>
+            <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">Linux / systemd</span>
+            <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">Git / GitHub</span>
+            <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">Vercel</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Languages -->
+      <div class="mt-8 card rounded-xl p-6">
+        <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Languages</h3>
+        <div class="grid sm:grid-cols-3 gap-6">
+          <div>
+            <div class="flex justify-between mb-1.5">
+              <span class="text-sm text-gray-300">Spanish</span>
+              <span class="text-xs text-gray-500">Native</span>
+            </div>
+            <div class="skill-bar-bg h-1.5 rounded-full"><div class="skill-bar h-1.5 rounded-full" style="width:100%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-1.5">
+              <span class="text-sm text-gray-300">English</span>
+              <span class="text-xs text-gray-500">Professional</span>
+            </div>
+            <div class="skill-bar-bg h-1.5 rounded-full"><div class="skill-bar h-1.5 rounded-full" style="width:82%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-1.5">
+              <span class="text-sm text-gray-300">Catalan</span>
+              <span class="text-xs text-gray-500">Basic</span>
+            </div>
+            <div class="skill-bar-bg h-1.5 rounded-full"><div class="skill-bar h-1.5 rounded-full" style="width:30%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-24 px-6 border-t border-white/5">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-blue-400 font-mono text-sm mb-2">// contact</p>
+      <h2 class="text-3xl font-bold text-white mb-4">Let's talk</h2>
+      <p class="text-gray-400 mb-10 max-w-lg">
+        Looking for junior backend, full stack, or frontend roles.
+        Open to remote, Barcelona, EU, and Mercosur (Argentina, Uruguay, Brazil).
+      </p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+        <a href="mailto:lautarocp20@gmail.com" class="card rounded-xl p-5 flex items-center gap-4 group">
+          <div class="w-10 h-10 rounded-lg bg-blue-500/15 flex items-center justify-center text-blue-400 group-hover:bg-blue-500/25 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <p class="text-xs text-gray-500 mb-0.5">Email</p>
+            <p class="text-sm text-white font-medium">lautarocp20@gmail.com</p>
+          </div>
+        </a>
+
+        <a href="https://github.com/Lautarocp" target="_blank" rel="noopener" class="card rounded-xl p-5 flex items-center gap-4 group">
+          <div class="w-10 h-10 rounded-lg bg-gray-500/15 flex items-center justify-center text-gray-400 group-hover:bg-gray-500/25 transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </div>
+          <div>
+            <p class="text-xs text-gray-500 mb-0.5">GitHub</p>
+            <p class="text-sm text-white font-medium">github.com/Lautarocp</p>
+          </div>
+        </a>
+
+        <div class="card rounded-xl p-5 flex items-center gap-4">
+          <div class="w-10 h-10 rounded-lg bg-green-500/15 flex items-center justify-center text-green-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <p class="text-xs text-gray-500 mb-0.5">Location</p>
+            <p class="text-sm text-white font-medium">Barcelona, Spain 🇪🇸</p>
+            <p class="text-xs text-gray-500">EU citizen · Remote OK</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="mailto:lautarocp20@gmail.com"
+         class="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-base">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Send me an email
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 py-8 px-6">
+    <div class="max-w-5xl mx-auto flex items-center justify-between flex-wrap gap-4">
+      <span class="font-mono text-sm text-gray-600">© 2026 Lautaro Pomposiello</span>
+      <span class="font-mono text-xs text-gray-700">Built with HTML + Tailwind CSS</span>
+    </div>
+  </footer>
+
+</body>
+</html>
