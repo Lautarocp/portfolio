@@ -134,7 +134,7 @@
       <!-- Quick stats -->
       <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4">
         <div class="card rounded-xl p-5">
-          <p class="text-3xl font-bold text-white">2</p>
+          <p class="text-3xl font-bold text-white">3</p>
           <p class="text-sm text-gray-500 mt-1">Live projects</p>
         </div>
         <div class="card rounded-xl p-5">
@@ -203,6 +203,53 @@
             Live Demo
           </a>
           <a href="https://github.com/Lautarocp/pms-mock" target="_blank" rel="noopener"
+             class="btn-outline text-sm px-4 py-2 rounded-lg font-semibold flex items-center gap-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            View Code
+          </a>
+        </div>
+      </div>
+
+      <!-- Tier List Live -->
+      <div class="card rounded-2xl p-8 mb-6">
+        <div class="flex items-start gap-4 mb-5">
+          <div class="w-12 h-12 rounded-xl bg-green-500/15 flex items-center justify-center text-2xl flex-shrink-0">🎮</div>
+          <div>
+            <h3 class="text-xl font-bold text-white">Tier List Live</h3>
+            <p class="text-gray-400 text-sm mt-1">Real-time interactive tier list for streamers</p>
+          </div>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+          Web app built for live streaming: the streamer drags items into tiers while the audience votes blind in real time. When an item is dropped into a tier, the vote breakdown animates in. Zero-database architecture — all state lives in memory and Redis. Deployed on Render with a warm-up gate for free-tier cold starts.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-4 mb-6 text-sm text-gray-400">
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2"><span class="text-green-400">▸</span> Blind voting via WebSockets + Redis pub/sub</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">▸</span> Drag-and-drop tier list with reveal animation</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">▸</span> Image uploads processed in-memory with Sharp</li>
+          </ul>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2"><span class="text-green-400">▸</span> Session codes — no accounts needed</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">▸</span> i18n ES / EN toggle</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">▸</span> Stateless backend — survives Render restarts</li>
+          </ul>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="tag tag-green text-xs px-2 py-1 rounded-md">React 18</span>
+          <span class="tag tag-green text-xs px-2 py-1 rounded-md">NestJS</span>
+          <span class="tag tag-green text-xs px-2 py-1 rounded-md">TypeScript</span>
+          <span class="tag tag-green text-xs px-2 py-1 rounded-md">Redis</span>
+          <span class="tag tag-green text-xs px-2 py-1 rounded-md">Socket.io</span>
+          <span class="tag tag-green text-xs px-2 py-1 rounded-md">Tailwind CSS</span>
+          <span class="tag tag-green text-xs px-2 py-1 rounded-md">Docker</span>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="https://tierlist-frontend-d60w.onrender.com" target="_blank" rel="noopener"
+             class="btn-primary text-sm px-4 py-2 rounded-lg font-semibold flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            Live Demo
+          </a>
+          <a href="https://github.com/Lautarocp/tierlist-live" target="_blank" rel="noopener"
              class="btn-outline text-sm px-4 py-2 rounded-lg font-semibold flex items-center gap-2">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
             View Code
@@ -347,6 +394,7 @@
             <span class="tag tag-purple block text-xs px-2 py-1.5 rounded-md text-center">Prisma ORM</span>
             <span class="tag tag-purple block text-xs px-2 py-1.5 rounded-md text-center">REST API</span>
             <span class="tag tag-purple block text-xs px-2 py-1.5 rounded-md text-center">JWT Auth</span>
+            <span class="tag tag-purple block text-xs px-2 py-1.5 rounded-md text-center">Socket.io</span>
             <span class="tag tag-purple block text-xs px-2 py-1.5 rounded-md text-center">Python / Flask</span>
           </div>
         </div>
@@ -356,10 +404,11 @@
           <div class="space-y-2">
             <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">PostgreSQL 15</span>
             <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">MongoDB</span>
+            <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">Redis</span>
             <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">Docker / Compose</span>
             <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">Linux / systemd</span>
             <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">Git / GitHub</span>
-            <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">Vercel</span>
+            <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">Vercel / Render</span>
           </div>
         </div>
 
