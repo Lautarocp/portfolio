@@ -319,6 +319,15 @@
 .tab { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:8px 12px; border:2px solid #1c1713; background:transparent; color:#1c1713; transition:background 0.15s ease,color 0.15s ease; }
 .tab.active { background:#1c1713; color:#f2ece0; }
 [hidden] { display:none !important; }
+@media (max-width:640px) {
+  body > div > header { padding:10px 16px !important; gap:8px 12px !important; }
+  body > div > header > button { order:1; }
+  body > div > header > a { order:2; padding:7px 12px !important; }
+  body > div > header > nav { order:3; width:100%; flex-wrap:nowrap !important; overflow-x:auto; padding-bottom:2px; }
+  body > div > header > nav .tab { flex:none; }
+  body > div > footer > div { padding:10px 16px !important; }
+  body > div > footer > div > span:nth-child(2) { display:none; }
+}
 .h0:hover{background:#c65a2e !important; border-color:#c65a2e !important; color:#f2ece0 !important}
 .h1:hover{transform:translate(2px,2px) !important; box-shadow:3px 3px 0 #1c1713 !important}
 .h2:hover{transform:translate(2px,2px) !important; box-shadow:3px 3px 0 #1c1713 !important}
@@ -370,7 +379,7 @@
               <span style="width:8px;height:8px;background:#2f6e6a;border-radius:50%;display:inline-block"></span>
               Available for work
             </div>
-          </div>
+          
           <h1 style="font-family:'Archivo Black',Helvetica,sans-serif;font-size:clamp(34px,11.2cqw,104px);line-height:0.88;letter-spacing:-0.03em;margin:0;text-transform:uppercase">
             Lautaro<br>
             <span style="color:#c65a2e">Pomposiello</span>
@@ -446,7 +455,7 @@
                   <li>→ One-click monthly billing generation</li>
                 </ul>
               </div>
-            </div>
+            
           </div>
         </article>
 
@@ -484,7 +493,7 @@
                   <li>→ Stateless backend — survives Render restarts</li>
                 </ul>
               </div>
-            </div>
+            
           </div>
         </article>
 
@@ -520,7 +529,7 @@
                   <li>→ Days/months expiry with calendar logic</li>
                 </ul>
               </div>
-            </div>
+            
           </div>
         </article>
       </section>
@@ -646,7 +655,11 @@
     if (TABS.indexOf(next) < 0) next = "home";
     tab = next;
     panes.forEach(function (p) { p.hidden = p.getAttribute("data-pane") !== tab; });
-    tabs.forEach(function (b) { b.classList.toggle("active", b.getAttribute("data-go") === tab); });
+    tabs.forEach(function (b) {
+      var on = b.getAttribute("data-go") === tab;
+      b.classList.toggle("active", on);
+      if (on && b.scrollIntoView) b.scrollIntoView({ inline: "nearest", block: "nearest" });
+    });
     label.textContent = LABELS[tab];
     pane.style.background = BG[tab];
     pane.scrollTop = align === "bottom" ? Math.max(0, pane.scrollHeight - pane.clientHeight) : 0;
