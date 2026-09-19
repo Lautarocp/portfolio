@@ -1,503 +1,703 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lautaro Pomposiello — Full Stack Developer</title>
-  <meta name="description" content="Full Stack Developer based in Barcelona. React, NestJS, TypeScript, PostgreSQL, Docker." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            accent: '#3b82f6',
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
-          },
-        },
-      },
-    }
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <style>
-    html { background: #0a0a0a; }
-    .gradient-text {
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .card:hover {
-      background: rgba(255,255,255,0.07);
-      border-color: rgba(59,130,246,0.4);
-    }
-    .tag {
-      background: rgba(59,130,246,0.12);
-      border: 1px solid rgba(59,130,246,0.25);
-      color: #93c5fd;
-      font-family: 'JetBrains Mono', monospace;
-    }
-    .tag-purple {
-      background: rgba(139,92,246,0.12);
-      border: 1px solid rgba(139,92,246,0.25);
-      color: #c4b5fd;
-    }
-    .tag-green {
-      background: rgba(34,197,94,0.10);
-      border: 1px solid rgba(34,197,94,0.2);
-      color: #86efac;
-    }
-    .dot { background: #3b82f6; }
-    .dot-green { background: #22c55e; }
-    section { scroll-margin-top: 72px; }
-    .nav-link {
-      color: #9ca3af;
-      transition: color 0.2s;
-    }
-    .nav-link:hover { color: #fff; }
-    .btn-primary {
-      background: #3b82f6;
-      color: #fff;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .btn-primary:hover { background: #2563eb; transform: translateY(-1px); }
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #d1d5db;
-      transition: border-color 0.2s, color 0.2s, transform 0.15s;
-    }
-    .btn-outline:hover { border-color: #3b82f6; color: #fff; transform: translateY(-1px); }
-    .timeline-line { border-left: 2px solid rgba(255,255,255,0.08); }
-    .skill-bar-bg { background: rgba(255,255,255,0.06); }
-    .skill-bar { background: linear-gradient(90deg, #3b82f6, #8b5cf6); }
-    ::selection { background: rgba(59,130,246,0.35); color: #fff; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lautaro Pomposiello — Full Stack Developer</title>
+<meta name="description" content="Full Stack Developer based in Barcelona. React, NestJS, TypeScript, PostgreSQL, Docker.">
+<style>/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("fonts/f1a7502f-0cd9-488f-a24a-fb21990967e3.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("fonts/c2759745-db51-4d47-8efd-eaea0e1e6d90.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("fonts/1cb05f2e-7c57-47c8-b92a-aecfcef978aa.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("fonts/f1a7502f-0cd9-488f-a24a-fb21990967e3.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("fonts/c2759745-db51-4d47-8efd-eaea0e1e6d90.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("fonts/1cb05f2e-7c57-47c8-b92a-aecfcef978aa.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("fonts/f1a7502f-0cd9-488f-a24a-fb21990967e3.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("fonts/c2759745-db51-4d47-8efd-eaea0e1e6d90.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("fonts/1cb05f2e-7c57-47c8-b92a-aecfcef978aa.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("fonts/f1a7502f-0cd9-488f-a24a-fb21990967e3.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("fonts/c2759745-db51-4d47-8efd-eaea0e1e6d90.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("fonts/1cb05f2e-7c57-47c8-b92a-aecfcef978aa.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo Black';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/1145371b-081b-4267-bb6d-5c9bc0c7e74e.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo Black';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/ea0c130e-0c1d-44e7-8aff-5ab8f719b0a6.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/b91414de-3283-45c3-abd7-0967c055cfd1.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/9f618646-7a3a-4d82-b98c-1ac8d90f61d4.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/82ea2446-d74f-4a2e-ac58-9781aef734ee.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/58a46fc6-7736-49bf-88c4-79536617cf38.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/0081cc59-16e4-4ca9-97a9-8f94c1424c10.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/0d469866-a269-439b-af60-d2ea105ce4e7.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/b91414de-3283-45c3-abd7-0967c055cfd1.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/9f618646-7a3a-4d82-b98c-1ac8d90f61d4.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/82ea2446-d74f-4a2e-ac58-9781aef734ee.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/58a46fc6-7736-49bf-88c4-79536617cf38.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/0081cc59-16e4-4ca9-97a9-8f94c1424c10.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/0d469866-a269-439b-af60-d2ea105ce4e7.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/b91414de-3283-45c3-abd7-0967c055cfd1.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/9f618646-7a3a-4d82-b98c-1ac8d90f61d4.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/82ea2446-d74f-4a2e-ac58-9781aef734ee.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/58a46fc6-7736-49bf-88c4-79536617cf38.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/0081cc59-16e4-4ca9-97a9-8f94c1424c10.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/0d469866-a269-439b-af60-d2ea105ce4e7.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+
+  html, body { margin:0; padding:0; background:#f2ece0; }
+  * { box-sizing:border-box; }
+  a { color:#1c1713; text-decoration:none; }
+  a:hover { color:#c65a2e; }
+  button { font:inherit; cursor:pointer; }
+  @keyframes tickerRun { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+  @keyframes paneIn { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
+
+.tab { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:8px 12px; border:2px solid #1c1713; background:transparent; color:#1c1713; transition:background 0.15s ease,color 0.15s ease; }
+.tab.active { background:#1c1713; color:#f2ece0; }
+[hidden] { display:none !important; }
+.h0:hover{background:#c65a2e !important; border-color:#c65a2e !important; color:#f2ece0 !important}
+.h1:hover{transform:translate(2px,2px) !important; box-shadow:3px 3px 0 #1c1713 !important}
+.h2:hover{transform:translate(2px,2px) !important; box-shadow:3px 3px 0 #1c1713 !important}
+.h3:hover{background:#c65a2e !important; border-color:#c65a2e !important}
+.h4:hover{background:#e0a92a !important}
+.h5:hover{background:#2f6e6a !important; border-color:#2f6e6a !important}
+.h6:hover{background:#e0a92a !important}
+.h7:hover{background:#c65a2e !important; border-color:#c65a2e !important}
+.h8:hover{transform:translate(2px,2px) !important; box-shadow:4px 4px 0 #f2ece0 !important}
+.h9:hover{background:#1c1713 !important; color:#f2ece0 !important}
+.h10:hover{background:#1c1713 !important; color:#f2ece0 !important}
+</style>
 </head>
-<body class="bg-[#0a0a0a] text-gray-100 font-sans antialiased">
+<body>
+<div style="background:#f2ece0;color:#1c1713;font-family:Archivo,Helvetica,sans-serif;height:100dvh;display:flex;flex-direction:column;overflow:hidden">
 
-  <!-- NAV -->
-  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5" style="background: rgba(10,10,10,0.85); backdrop-filter: blur(12px);">
-    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-      <span class="font-mono text-sm text-blue-400 font-medium">lautaro.dev</span>
-      <div class="hidden sm:flex items-center gap-8">
-        <a href="#about" class="nav-link text-sm">About</a>
-        <a href="#projects" class="nav-link text-sm">Projects</a>
-        <a href="#experience" class="nav-link text-sm">Experience</a>
-        <a href="#skills" class="nav-link text-sm">Skills</a>
-        <a href="#contact" class="nav-link text-sm">Contact</a>
-      </div>
-      <a href="mailto:lautarocp20@gmail.com" class="btn-primary text-sm px-4 py-2 rounded-lg font-medium">
-        Hire me
-      </a>
+  <header style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:14px 24px;border-bottom:2px solid #1c1713;flex:none">
+    <button type="button" data-go="home" style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;letter-spacing:0.08em;background:none;border:none;padding:0;color:#1c1713">LAUTARO.DEV</button>
+    <nav style="display:flex;gap:8px;flex-wrap:wrap">
+      <button type="button" data-go="home" class="tab">00 Home</button>
+      <button type="button" data-go="work" class="tab">01 Work</button>
+      <button type="button" data-go="background" class="tab">02 Background</button>
+      <button type="button" data-go="stack" class="tab">03 Stack</button>
+      <button type="button" data-go="contact" class="tab">04 Contact</button>
+    </nav>
+    <a class="h0" href="mailto:lautarocp20@gmail.com" style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:#1c1713;color:#f2ece0;padding:9px 16px;border:2px solid #1c1713">Hire me</a>
+  </header>
+
+  <div style="overflow:hidden;background:#e0a92a;border-bottom:2px solid #1c1713;padding:8px 0;flex:none">
+    <div style="display:flex;width:max-content;animation:tickerRun 26s linear infinite;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase">
+      <span style="padding-right:28px">Full Stack Developer</span><span style="padding-right:28px">✳</span>
+      <span style="padding-right:28px">Barcelona, ES</span><span style="padding-right:28px">✳</span>
+      <span style="padding-right:28px">TypeScript · React · NestJS</span><span style="padding-right:28px">✳</span>
+      <span style="padding-right:28px">Open to remote / EU / Mercosur</span><span style="padding-right:28px">✳</span>
+      <span style="padding-right:28px">Full Stack Developer</span><span style="padding-right:28px">✳</span>
+      <span style="padding-right:28px">Barcelona, ES</span><span style="padding-right:28px">✳</span>
+      <span style="padding-right:28px">TypeScript · React · NestJS</span><span style="padding-right:28px">✳</span>
+      <span style="padding-right:28px">Open to remote / EU / Mercosur</span><span style="padding-right:28px">✳</span>
     </div>
-  </nav>
+  </div>
 
-  <!-- HERO -->
-  <section id="about" class="pt-40 pb-28 px-6">
-    <div class="max-w-5xl mx-auto">
-      <div class="flex items-center gap-2 mb-6">
-        <span class="w-2 h-2 rounded-full dot-green animate-pulse"></span>
-        <span class="text-sm text-green-400 font-medium">Available for work</span>
-      </div>
-      <h1 class="text-5xl sm:text-6xl font-extrabold leading-tight mb-4">
-        Lautaro<br />
-        <span class="gradient-text">Pomposiello</span>
-      </h1>
-      <p class="text-xl text-gray-400 font-medium mb-3">Full Stack Developer</p>
-      <p class="text-gray-500 text-base max-w-xl mb-10 leading-relaxed">
-        Building robust web applications with TypeScript, React, and Node.js.
-        Based in Barcelona — open to remote, EU, and Mercosur opportunities.
-      </p>
-      <div class="flex flex-wrap gap-3">
-        <a href="#projects" class="btn-primary px-6 py-3 rounded-xl font-semibold text-sm">
-          View projects →
-        </a>
-        <a href="https://github.com/Lautarocp" target="_blank" rel="noopener" class="btn-outline px-6 py-3 rounded-xl font-semibold text-sm flex items-center gap-2">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          GitHub
-        </a>
-        <a href="mailto:lautarocp20@gmail.com" class="btn-outline px-6 py-3 rounded-xl font-semibold text-sm flex items-center gap-2">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          lautarocp20@gmail.com
-        </a>
-      </div>
+  <main id="pane" style="flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;background:#f2ece0">
 
-      <!-- Quick stats -->
-      <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div class="card rounded-xl p-5">
-          <p class="text-3xl font-bold text-white">3</p>
-          <p class="text-sm text-gray-500 mt-1">Live projects</p>
-        </div>
-        <div class="card rounded-xl p-5">
-          <p class="text-3xl font-bold text-white">6+</p>
-          <p class="text-sm text-gray-500 mt-1">Technologies</p>
-        </div>
-        <div class="card rounded-xl p-5">
-          <p class="text-3xl font-bold text-white">2</p>
-          <p class="text-sm text-gray-500 mt-1">Languages</p>
-        </div>
-        <div class="card rounded-xl p-5">
-          <p class="text-3xl font-bold text-white">EU</p>
-          <p class="text-sm text-gray-500 mt-1">Work permit</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="py-24 px-6 border-t border-white/5">
-    <div class="max-w-5xl mx-auto">
-      <p class="text-blue-400 font-mono text-sm mb-2">// projects</p>
-      <h2 class="text-3xl font-bold text-white mb-12">What I've built</h2>
-
-      <!-- PMS — Featured -->
-      <div class="card rounded-2xl p-8 mb-6 relative overflow-hidden">
-        <div class="absolute top-4 right-4">
-          <span class="text-xs bg-blue-500/20 border border-blue-500/30 text-blue-400 px-2 py-1 rounded-full font-mono">Featured</span>
-        </div>
-        <div class="flex items-start gap-4 mb-5">
-          <div class="w-12 h-12 rounded-xl bg-blue-500/15 flex items-center justify-center text-2xl flex-shrink-0">🏢</div>
-          <div>
-            <h3 class="text-xl font-bold text-white">Property Management System</h3>
-            <p class="text-gray-400 text-sm mt-1">Full-stack web app for managing residential properties</p>
-          </div>
-        </div>
-        <p class="text-gray-400 text-sm leading-relaxed mb-6">
-          Multi-tenant PMS handling apartment complexes, leases, tenants, payments, maintenance requests, and financial reporting. Built a complete REST API with NestJS + Prisma, and a React dashboard with real-time filters, i18n (EN/ES), role-based auth, and PDF generation. Deployed via Docker Compose on a self-hosted Linux server.
-        </p>
-        <div class="grid sm:grid-cols-2 gap-4 mb-6 text-sm text-gray-400">
-          <ul class="space-y-1.5">
-            <li class="flex items-center gap-2"><span class="text-blue-400">▸</span> JWT auth + role-based access control</li>
-            <li class="flex items-center gap-2"><span class="text-blue-400">▸</span> Itemized payments with partial pay support</li>
-            <li class="flex items-center gap-2"><span class="text-blue-400">▸</span> Lease transfer & termination with deposit logic</li>
-          </ul>
-          <ul class="space-y-1.5">
-            <li class="flex items-center gap-2"><span class="text-blue-400">▸</span> Revenue charts & outstanding balance reports</li>
-            <li class="flex items-center gap-2"><span class="text-blue-400">▸</span> Maintenance tracking with cost assignment</li>
-            <li class="flex items-center gap-2"><span class="text-blue-400">▸</span> One-click monthly billing generation</li>
-          </ul>
-        </div>
-        <div class="flex flex-wrap gap-2 mb-6">
-          <span class="tag text-xs px-2 py-1 rounded-md">React 18</span>
-          <span class="tag text-xs px-2 py-1 rounded-md">NestJS 10</span>
-          <span class="tag text-xs px-2 py-1 rounded-md">TypeScript</span>
-          <span class="tag text-xs px-2 py-1 rounded-md">Prisma ORM</span>
-          <span class="tag text-xs px-2 py-1 rounded-md">PostgreSQL</span>
-          <span class="tag text-xs px-2 py-1 rounded-md">Docker</span>
-          <span class="tag text-xs px-2 py-1 rounded-md">Tailwind CSS</span>
-          <span class="tag text-xs px-2 py-1 rounded-md">TanStack Query</span>
-        </div>
-        <div class="flex flex-wrap gap-3">
-          <a href="https://pms-mock-ruby.vercel.app" target="_blank" rel="noopener"
-             class="btn-primary text-sm px-4 py-2 rounded-lg font-semibold flex items-center gap-2">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            Live Demo
-          </a>
-          <a href="https://github.com/Lautarocp/pms-mock" target="_blank" rel="noopener"
-             class="btn-outline text-sm px-4 py-2 rounded-lg font-semibold flex items-center gap-2">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            View Code
-          </a>
-        </div>
-      </div>
-
-      <!-- Tier List Live -->
-      <div class="card rounded-2xl p-8 mb-6">
-        <div class="flex items-start gap-4 mb-5">
-          <div class="w-12 h-12 rounded-xl bg-green-500/15 flex items-center justify-center text-2xl flex-shrink-0">🎮</div>
-          <div>
-            <h3 class="text-xl font-bold text-white">Tier List Live</h3>
-            <p class="text-gray-400 text-sm mt-1">Real-time interactive tier list for streamers</p>
-          </div>
-        </div>
-        <p class="text-gray-400 text-sm leading-relaxed mb-6">
-          Web app built for live streaming: the streamer drags items into tiers while the audience votes blind in real time. When an item is dropped into a tier, the vote breakdown animates in. Zero-database architecture — all state lives in memory and Redis. Deployed on Render with a warm-up gate for free-tier cold starts.
-        </p>
-        <div class="grid sm:grid-cols-2 gap-4 mb-6 text-sm text-gray-400">
-          <ul class="space-y-1.5">
-            <li class="flex items-center gap-2"><span class="text-green-400">▸</span> Blind voting via WebSockets + Redis pub/sub</li>
-            <li class="flex items-center gap-2"><span class="text-green-400">▸</span> Drag-and-drop tier list with reveal animation</li>
-            <li class="flex items-center gap-2"><span class="text-green-400">▸</span> Image uploads processed in-memory with Sharp</li>
-          </ul>
-          <ul class="space-y-1.5">
-            <li class="flex items-center gap-2"><span class="text-green-400">▸</span> Session codes — no accounts needed</li>
-            <li class="flex items-center gap-2"><span class="text-green-400">▸</span> i18n ES / EN toggle</li>
-            <li class="flex items-center gap-2"><span class="text-green-400">▸</span> Stateless backend — survives Render restarts</li>
-          </ul>
-        </div>
-        <div class="flex flex-wrap gap-2 mb-6">
-          <span class="tag tag-green text-xs px-2 py-1 rounded-md">React 18</span>
-          <span class="tag tag-green text-xs px-2 py-1 rounded-md">NestJS</span>
-          <span class="tag tag-green text-xs px-2 py-1 rounded-md">TypeScript</span>
-          <span class="tag tag-green text-xs px-2 py-1 rounded-md">Redis</span>
-          <span class="tag tag-green text-xs px-2 py-1 rounded-md">Socket.io</span>
-          <span class="tag tag-green text-xs px-2 py-1 rounded-md">Tailwind CSS</span>
-          <span class="tag tag-green text-xs px-2 py-1 rounded-md">Docker</span>
-        </div>
-        <div class="flex flex-wrap gap-3">
-          <a href="https://tierlist-frontend-d60w.onrender.com" target="_blank" rel="noopener"
-             class="btn-primary text-sm px-4 py-2 rounded-lg font-semibold flex items-center gap-2">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            Live Demo
-          </a>
-          <a href="https://github.com/Lautarocp/tierlist-live" target="_blank" rel="noopener"
-             class="btn-outline text-sm px-4 py-2 rounded-lg font-semibold flex items-center gap-2">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            View Code
-          </a>
-        </div>
-      </div>
-
-      <!-- EtiquetasCaducidad -->
-      <div class="card rounded-2xl p-8 mb-6 relative overflow-hidden">
-        <div class="absolute top-4 right-4">
-          <span class="text-xs bg-green-500/20 border border-green-500/30 text-green-400 px-2 py-1 rounded-full font-mono flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse inline-block"></span>In production</span>
-        </div>
-        <div class="flex items-start gap-4 mb-5">
-          <div class="w-12 h-12 rounded-xl bg-purple-500/15 flex items-center justify-center text-2xl flex-shrink-0">🖨️</div>
-          <div>
-            <h3 class="text-xl font-bold text-white">Expiry Label Printer</h3>
-            <p class="text-gray-400 text-sm mt-1">IoT web app running on a Raspberry Pi</p>
-          </div>
-        </div>
-        <p class="text-gray-400 text-sm leading-relaxed mb-6">
-          Flask server running on a Raspberry Pi that acts as a WiFi access point. Mobile devices connect, open a browser, and print thermal expiry labels on a receipt printer via ESC/POS. Supports USB, network (TCP 9100), and RS-232 backends. Includes a web UI for managing product presets, configuring network interfaces, and switching printer connections — all without SSH.
-        </p>
-        <div class="grid sm:grid-cols-2 gap-4 mb-6 text-sm text-gray-400">
-          <ul class="space-y-1.5">
-            <li class="flex items-center gap-2"><span class="text-purple-400">▸</span> RPi as WiFi AP — no router needed</li>
-            <li class="flex items-center gap-2"><span class="text-purple-400">▸</span> ESC/POS thermal printing (USB, Net, RS-232)</li>
-            <li class="flex items-center gap-2"><span class="text-purple-400">▸</span> Web-based product preset manager</li>
-          </ul>
-          <ul class="space-y-1.5">
-            <li class="flex items-center gap-2"><span class="text-purple-400">▸</span> Network interface config from the browser</li>
-            <li class="flex items-center gap-2"><span class="text-purple-400">▸</span> systemd service — auto-starts on boot</li>
-            <li class="flex items-center gap-2"><span class="text-purple-400">▸</span> Days/months expiry with calendar logic</li>
-          </ul>
-        </div>
-        <div class="flex flex-wrap gap-2 mb-6">
-          <span class="tag tag-purple text-xs px-2 py-1 rounded-md">Python</span>
-          <span class="tag tag-purple text-xs px-2 py-1 rounded-md">Flask</span>
-          <span class="tag tag-purple text-xs px-2 py-1 rounded-md">Raspberry Pi</span>
-          <span class="tag tag-purple text-xs px-2 py-1 rounded-md">ESC/POS</span>
-          <span class="tag tag-purple text-xs px-2 py-1 rounded-md">Linux / systemd</span>
-          <span class="tag tag-purple text-xs px-2 py-1 rounded-md">NetworkManager</span>
-        </div>
-        <div class="flex flex-wrap gap-3">
-          <a href="https://github.com/Lautarocp/EtiquetasCaducidad-rpi" target="_blank" rel="noopener"
-             class="btn-outline text-sm px-4 py-2 rounded-lg font-semibold flex items-center gap-2">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            View Code
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="py-24 px-6 border-t border-white/5">
-    <div class="max-w-5xl mx-auto">
-      <p class="text-blue-400 font-mono text-sm mb-2">// experience</p>
-      <h2 class="text-3xl font-bold text-white mb-12">Background</h2>
-
-      <div class="timeline-line pl-8 space-y-10 ml-3">
-
-        <!-- SoyHenry -->
-        <div class="relative">
-          <div class="absolute -left-10 top-1 w-4 h-4 rounded-full dot border-2 border-[#0a0a0a]"></div>
-          <div class="flex items-start justify-between flex-wrap gap-2 mb-2">
-            <div>
-              <h3 class="text-base font-bold text-white">Full Stack Developer — SoyHenry Bootcamp</h3>
-              <p class="text-sm text-blue-400">Education</p>
+    <div data-pane="home">
+      <section style="max-width:1200px;margin:0 auto;padding:56px 24px 64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:40px;align-items:end;animation:paneIn 0.4s ease both;container-type:inline-size">
+        <div style="min-width:0;container-type:inline-size">
+          
+            <div style="display:inline-flex;align-items:center;gap:8px;border:2px solid #1c1713;background:#f2ece0;padding:6px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:22px">
+              <span style="width:8px;height:8px;background:#2f6e6a;border-radius:50%;display:inline-block"></span>
+              Available for work
             </div>
-            <span class="text-xs text-gray-500 font-mono">Mar 2025 – Present</span>
           </div>
-          <p class="text-sm text-gray-400 leading-relaxed">
-            Intensive full-stack program covering TypeScript, React, Node.js, NestJS, PostgreSQL, MongoDB, and Docker. Built end-to-end projects including the Property Management System. Covered REST API design, database modeling, authentication, testing, and deployment.
-          </p>
-          <div class="flex flex-wrap gap-2 mt-3">
-            <span class="tag text-xs px-2 py-0.5 rounded-md">TypeScript</span>
-            <span class="tag text-xs px-2 py-0.5 rounded-md">React</span>
-            <span class="tag text-xs px-2 py-0.5 rounded-md">NestJS</span>
-            <span class="tag text-xs px-2 py-0.5 rounded-md">PostgreSQL</span>
-            <span class="tag text-xs px-2 py-0.5 rounded-md">Docker</span>
+          <h1 style="font-family:'Archivo Black',Helvetica,sans-serif;font-size:clamp(34px,11.2cqw,104px);line-height:0.88;letter-spacing:-0.03em;margin:0;text-transform:uppercase">
+            Lautaro<br>
+            <span style="color:#c65a2e">Pomposiello</span>
+          </h1>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;margin:18px 0 0;border-top:2px solid #1c1713;padding-top:14px;max-width:560px">Full Stack Developer — Barcelona '26</p>
+          <p style="font-size:17px;line-height:1.55;max-width:520px;margin:18px 0 0;text-wrap:pretty">Building robust web applications with TypeScript, React and Node.js. Based in Barcelona — open to remote, EU and Mercosur opportunities.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
+            <button class="h1" type="button" data-go="work" style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:#c65a2e;color:#f2ece0;border:2px solid #1c1713;padding:13px 22px;box-shadow:5px 5px 0 #1c1713">View projects →</button>
+            <a class="h2" href="https://github.com/Lautarocp" style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:#f2ece0;border:2px solid #1c1713;padding:13px 22px;box-shadow:5px 5px 0 #1c1713">GitHub</a>
           </div>
         </div>
-
-        <!-- Gorillas -->
-        <div class="relative">
-          <div class="absolute -left-10 top-1 w-4 h-4 rounded-full bg-gray-700 border-2 border-[#0a0a0a]"></div>
-          <div class="flex items-start justify-between flex-wrap gap-2 mb-2">
-            <div>
-              <h3 class="text-base font-bold text-white">Team Supervisor — Gorillas</h3>
-              <p class="text-sm text-gray-500">Berlin, Germany</p>
-            </div>
-            <span class="text-xs text-gray-500 font-mono">2021 – 2022</span>
+        <div style="display:grid;grid-template-columns:1fr 1fr;border:2px solid #1c1713;background:#1c1713;gap:2px;box-shadow:8px 8px 0 #e0a92a;min-width:0">
+          <div style="background:#f2ece0;padding:24px 20px">
+            <div style="font-family:'Archivo Black',sans-serif;font-size:44px;line-height:1">3</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;margin-top:6px">Live projects</div>
           </div>
-          <p class="text-sm text-gray-400 leading-relaxed">
-            Led warehouse teams in a high-pressure, fast-moving logistics operation. Responsible for shift coordination, performance tracking, and on-the-ground problem solving. Developed strong operational and team management skills in a startup environment.
-          </p>
-        </div>
-
-        <!-- The One Hotel -->
-        <div class="relative">
-          <div class="absolute -left-10 top-1 w-4 h-4 rounded-full bg-gray-700 border-2 border-[#0a0a0a]"></div>
-          <div class="flex items-start justify-between flex-wrap gap-2 mb-2">
-            <div>
-              <h3 class="text-base font-bold text-white">Hospitality — The One Hotel</h3>
-              <p class="text-sm text-gray-500">Barcelona, Spain</p>
-            </div>
-            <span class="text-xs text-gray-500 font-mono">Previous</span>
+          <div style="background:#f2ece0;padding:24px 20px">
+            <div style="font-family:'Archivo Black',sans-serif;font-size:44px;line-height:1">6+</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;margin-top:6px">Technologies</div>
           </div>
-          <p class="text-sm text-gray-400 leading-relaxed">
-            Customer-facing role in a high-end hotel environment. Built communication, attention to detail, and service excellence skills across international guests.
-          </p>
+          <div style="background:#f2ece0;padding:24px 20px">
+            <div style="font-family:'Archivo Black',sans-serif;font-size:44px;line-height:1">2</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;margin-top:6px">Languages</div>
+          </div>
+          <div style="background:#e0a92a;padding:24px 20px">
+            <div style="font-family:'Archivo Black',sans-serif;font-size:44px;line-height:1">EU</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;margin-top:6px">Work permit</div>
+          </div>
         </div>
-
-      </div>
+      </section>
     </div>
-  </section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="py-24 px-6 border-t border-white/5">
-    <div class="max-w-5xl mx-auto">
-      <p class="text-blue-400 font-mono text-sm mb-2">// skills</p>
-      <h2 class="text-3xl font-bold text-white mb-12">Tech stack</h2>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <div class="card rounded-xl p-6">
-          <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Frontend</h3>
-          <div class="space-y-2">
-            <span class="tag block text-xs px-2 py-1.5 rounded-md text-center">React 18</span>
-            <span class="tag block text-xs px-2 py-1.5 rounded-md text-center">TypeScript</span>
-            <span class="tag block text-xs px-2 py-1.5 rounded-md text-center">Tailwind CSS</span>
-            <span class="tag block text-xs px-2 py-1.5 rounded-md text-center">TanStack Query</span>
-            <span class="tag block text-xs px-2 py-1.5 rounded-md text-center">React Router 6</span>
-            <span class="tag block text-xs px-2 py-1.5 rounded-md text-center">Zustand</span>
-            <span class="tag block text-xs px-2 py-1.5 rounded-md text-center">Vite</span>
-          </div>
+    <div data-pane="work" hidden>
+      <section style="max-width:1200px;margin:0 auto;padding:48px 24px 72px;animation:paneIn 0.4s ease both">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;border-bottom:2px solid #1c1713;padding-bottom:16px;margin-bottom:40px">
+          <h2 style="font-family:'Archivo Black',sans-serif;font-size:clamp(32px,5vw,56px);text-transform:uppercase;letter-spacing:-0.02em;margin:0">What I've built</h2>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase">03 projects</span>
         </div>
 
-        <div class="card rounded-xl p-6">
-          <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Backend</h3>
-          <div class="space-y-2">
-            <span class="tag tag-purple block text-xs px-2 py-1.5 rounded-md text-center">NestJS 10</span>
-            <span class="tag tag-purple block text-xs px-2 py-1.5 rounded-md text-center">Node.js</span>
-            <span class="tag tag-purple block text-xs px-2 py-1.5 rounded-md text-center">Prisma ORM</span>
-            <span class="tag tag-purple block text-xs px-2 py-1.5 rounded-md text-center">REST API</span>
-            <span class="tag tag-purple block text-xs px-2 py-1.5 rounded-md text-center">JWT Auth</span>
-            <span class="tag tag-purple block text-xs px-2 py-1.5 rounded-md text-center">Socket.io</span>
-            <span class="tag tag-purple block text-xs px-2 py-1.5 rounded-md text-center">Python / Flask</span>
+        <article style="border:2px solid #1c1713;background:#f2ece0;box-shadow:10px 10px 0 #1c1713;margin-bottom:40px">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:#c65a2e;color:#f2ece0;border-bottom:2px solid #1c1713;padding:10px 20px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase">
+            <span>Project 01</span><span>Featured</span>
           </div>
-        </div>
-
-        <div class="card rounded-xl p-6">
-          <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Infrastructure</h3>
-          <div class="space-y-2">
-            <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">PostgreSQL 15</span>
-            <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">MongoDB</span>
-            <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">Redis</span>
-            <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">Docker / Compose</span>
-            <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">Linux / systemd</span>
-            <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">Git / GitHub</span>
-            <span class="tag tag-green block text-xs px-2 py-1.5 rounded-md text-center">Vercel / Render</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Languages -->
-      <div class="mt-8 card rounded-xl p-6">
-        <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Languages</h3>
-        <div class="grid sm:grid-cols-3 gap-6">
-          <div>
-            <div class="flex justify-between mb-1.5">
-              <span class="text-sm text-gray-300">Spanish</span>
-              <span class="text-xs text-gray-500">Native</span>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;padding:32px 28px">
+            <div style="min-width:0">
+              <h3 style="font-family:'Archivo Black',sans-serif;font-size:clamp(26px,3.4vw,38px);line-height:1.02;text-transform:uppercase;margin:0 0 10px">Property Management System</h3>
+              <p style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 16px;color:#5a4a3c">Full-stack web app for residential properties</p>
+              <p style="font-size:16px;line-height:1.6;margin:0;text-wrap:pretty">Multi-tenant PMS handling apartment complexes, leases, tenants, payments, maintenance and financial reporting. Complete REST API with NestJS + Prisma, and a React dashboard with real-time filters, i18n (EN/ES), role-based auth and PDF generation. Deployed via Docker Compose on a self-hosted Linux server.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:22px">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">React 18</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">NestJS 10</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">TypeScript</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">Prisma</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">PostgreSQL</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">Docker</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">Tailwind</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">TanStack Query</span>
+              </div>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px">
+                <a class="h3" href="https://pms-mock-ruby.vercel.app" style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:#1c1713;color:#f2ece0;padding:11px 18px;border:2px solid #1c1713">Live demo ↗</a>
+                <a class="h4" href="https://github.com/Lautarocp/pms-mock" style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;border:2px solid #1c1713;padding:11px 18px">View code ↗</a>
+              </div>
             </div>
-            <div class="skill-bar-bg h-1.5 rounded-full"><div class="skill-bar h-1.5 rounded-full" style="width:100%"></div></div>
-          </div>
-          <div>
-            <div class="flex justify-between mb-1.5">
-              <span class="text-sm text-gray-300">English</span>
-              <span class="text-xs text-gray-500">Professional</span>
+            
+              <div style="border-left:2px solid #1c1713;padding-left:28px;min-width:0">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px">Highlights</div>
+                <ul style="list-style:none;margin:0;padding:0;display:grid;gap:11px;font-size:15px;line-height:1.45">
+                  <li>→ JWT auth + role-based access control</li>
+                  <li>→ Itemized payments with partial pay support</li>
+                  <li>→ Lease transfer &amp; termination with deposit logic</li>
+                  <li>→ Revenue charts &amp; outstanding balance reports</li>
+                  <li>→ Maintenance tracking with cost assignment</li>
+                  <li>→ One-click monthly billing generation</li>
+                </ul>
+              </div>
             </div>
-            <div class="skill-bar-bg h-1.5 rounded-full"><div class="skill-bar h-1.5 rounded-full" style="width:82%"></div></div>
+          </div>
+        </article>
+
+        <article style="border:2px solid #1c1713;background:#f2ece0;box-shadow:10px 10px 0 #1c1713;margin-bottom:40px">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:#2f6e6a;color:#f2ece0;border-bottom:2px solid #1c1713;padding:10px 20px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase">
+            <span>Project 02</span><span>Realtime</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;padding:32px 28px">
+            <div style="min-width:0">
+              <h3 style="font-family:'Archivo Black',sans-serif;font-size:clamp(26px,3.4vw,38px);line-height:1.02;text-transform:uppercase;margin:0 0 10px">Tier List Live</h3>
+              <p style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 16px;color:#5a4a3c">Interactive tier list for streamers</p>
+              <p style="font-size:16px;line-height:1.6;margin:0;text-wrap:pretty">Built for live streaming: the streamer drags items into tiers while the audience votes blind in real time. When an item is dropped, the vote breakdown animates in. Zero-database architecture — all state lives in memory and Redis. Deployed on Render with a warm-up gate for free-tier cold starts.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:22px">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">React 18</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">NestJS</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">TypeScript</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">Redis</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">Socket.io</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">Docker</span>
+              </div>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px">
+                <a class="h5" href="https://tierlist-frontend-d60w.onrender.com" style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:#1c1713;color:#f2ece0;padding:11px 18px;border:2px solid #1c1713">Live demo ↗</a>
+                <a class="h6" href="https://github.com/Lautarocp/tierlist-live" style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;border:2px solid #1c1713;padding:11px 18px">View code ↗</a>
+              </div>
+            </div>
+            
+              <div style="border-left:2px solid #1c1713;padding-left:28px;min-width:0">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px">Highlights</div>
+                <ul style="list-style:none;margin:0;padding:0;display:grid;gap:11px;font-size:15px;line-height:1.45">
+                  <li>→ Blind voting via WebSockets + Redis pub/sub</li>
+                  <li>→ Drag-and-drop tier list with reveal animation</li>
+                  <li>→ Image uploads processed in-memory with Sharp</li>
+                  <li>→ Session codes — no accounts needed</li>
+                  <li>→ i18n ES / EN toggle</li>
+                  <li>→ Stateless backend — survives Render restarts</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article style="border:2px solid #1c1713;background:#f2ece0;box-shadow:10px 10px 0 #1c1713">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:#e0a92a;border-bottom:2px solid #1c1713;padding:10px 20px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase">
+            <span>Project 03</span><span>In production</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;padding:32px 28px">
+            <div style="min-width:0">
+              <h3 style="font-family:'Archivo Black',sans-serif;font-size:clamp(26px,3.4vw,38px);line-height:1.02;text-transform:uppercase;margin:0 0 10px">Expiry Label Printer</h3>
+              <p style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 16px;color:#5a4a3c">IoT web app running on a Raspberry Pi</p>
+              <p style="font-size:16px;line-height:1.6;margin:0;text-wrap:pretty">Flask server on a Raspberry Pi acting as a WiFi access point. Mobile devices connect, open a browser and print thermal expiry labels via ESC/POS. Supports USB, network (TCP 9100) and RS-232 backends, with a web UI for product presets, network config and printer switching — all without SSH.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:22px">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">Python</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">Flask</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">Raspberry Pi</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">ESC/POS</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1.5px solid #1c1713;padding:5px 9px">Linux / systemd</span>
+              </div>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px">
+                <a class="h7" href="https://github.com/Lautarocp/EtiquetasCaducidad-rpi" style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:#1c1713;color:#f2ece0;padding:11px 18px;border:2px solid #1c1713">View code ↗</a>
+              </div>
+            </div>
+            
+              <div style="border-left:2px solid #1c1713;padding-left:28px;min-width:0">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px">Highlights</div>
+                <ul style="list-style:none;margin:0;padding:0;display:grid;gap:11px;font-size:15px;line-height:1.45">
+                  <li>→ RPi as WiFi AP — no router needed</li>
+                  <li>→ ESC/POS thermal printing (USB, Net, RS-232)</li>
+                  <li>→ Web-based product preset manager</li>
+                  <li>→ Network interface config from the browser</li>
+                  <li>→ systemd service — auto-starts on boot</li>
+                  <li>→ Days/months expiry with calendar logic</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </div>
+
+    <div data-pane="background" hidden>
+      <section style="max-width:1200px;margin:0 auto;padding:48px 24px 64px;animation:paneIn 0.4s ease both">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;border-bottom:2px solid #1c1713;padding-bottom:16px;margin-bottom:36px">
+          <h2 style="font-family:'Archivo Black',sans-serif;font-size:clamp(32px,5vw,56px);text-transform:uppercase;letter-spacing:-0.02em;margin:0">Background</h2>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase">Experience</span>
+        </div>
+        <div style="display:grid;gap:0;border-top:2px solid #1c1713">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;border-bottom:2px solid #1c1713;padding:26px 0">
+            <div style="min-width:0">
+              <h3 style="font-family:'Archivo Black',sans-serif;font-size:22px;text-transform:uppercase;margin:0 0 8px;line-height:1.1">Full Stack Developer<br>SoyHenry Bootcamp</h3>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#5a4a3c">Education · Mar 2025 – Present</div>
+            </div>
+            <div style="grid-column:span 2;min-width:0">
+              <p style="font-size:16px;line-height:1.6;margin:0;max-width:640px;text-wrap:pretty">Intensive full-stack program covering TypeScript, React, Node.js, NestJS, PostgreSQL, MongoDB and Docker. Built end-to-end projects including the Property Management System — REST API design, database modeling, authentication, testing and deployment.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;border-bottom:2px solid #1c1713;padding:26px 0">
+            <div style="min-width:0">
+              <h3 style="font-family:'Archivo Black',sans-serif;font-size:22px;text-transform:uppercase;margin:0 0 8px;line-height:1.1">Team Supervisor<br>Gorillas</h3>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#5a4a3c">Berlin, Germany · 2021 – 2022</div>
+            </div>
+            <div style="grid-column:span 2;min-width:0">
+              <p style="font-size:16px;line-height:1.6;margin:0;max-width:640px;text-wrap:pretty">Led warehouse teams in a high-pressure logistics operation: shift coordination, performance tracking and on-the-ground problem solving in a fast-moving startup environment.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;border-bottom:2px solid #1c1713;padding:26px 0">
+            <div style="min-width:0">
+              <h3 style="font-family:'Archivo Black',sans-serif;font-size:22px;text-transform:uppercase;margin:0 0 8px;line-height:1.1">Hospitality<br>The One Hotel</h3>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#5a4a3c">Barcelona, Spain · Previous</div>
+            </div>
+            <div style="grid-column:span 2;min-width:0">
+              <p style="font-size:16px;line-height:1.6;margin:0;max-width:640px;text-wrap:pretty">Customer-facing role in a high-end hotel: communication, attention to detail and service excellence with international guests.</p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="py-24 px-6 border-t border-white/5">
-    <div class="max-w-5xl mx-auto">
-      <p class="text-blue-400 font-mono text-sm mb-2">// contact</p>
-      <h2 class="text-3xl font-bold text-white mb-4">Let's talk</h2>
-      <p class="text-gray-400 mb-10 max-w-lg">
-        Looking for junior backend, full stack, or frontend roles.
-        Open to remote, Barcelona, EU, and Mercosur (Argentina, Uruguay, Brazil).
-      </p>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
-        <a href="mailto:lautarocp20@gmail.com" class="card rounded-xl p-5 flex items-center gap-4 group">
-          <div class="w-10 h-10 rounded-lg bg-blue-500/15 flex items-center justify-center text-blue-400 group-hover:bg-blue-500/25 transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+    <div data-pane="stack" hidden>
+      <section style="max-width:1200px;margin:0 auto;padding:48px 24px 64px;animation:paneIn 0.4s ease both">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;border-bottom:2px solid #f2ece0;padding-bottom:16px;margin-bottom:36px">
+          <h2 style="font-family:'Archivo Black',sans-serif;font-size:clamp(32px,5vw,56px);text-transform:uppercase;letter-spacing:-0.02em;margin:0;color:#f2ece0">Tech stack</h2>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#e0a92a">04 areas</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;color:#f2ece0">
+          <div style="min-width:0">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#e0a92a;border-bottom:1.5px solid #4a4038;padding-bottom:10px;margin-bottom:14px">Frontend</div>
+            <ul style="list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px;line-height:1.4">
+              <li>React 18</li><li>TypeScript</li><li>Tailwind CSS</li><li>TanStack Query</li><li>React Router 6</li><li>Zustand</li><li>Vite</li>
+            </ul>
           </div>
-          <div>
-            <p class="text-xs text-gray-500 mb-0.5">Email</p>
-            <p class="text-sm text-white font-medium">lautarocp20@gmail.com</p>
+          <div style="min-width:0">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#e0a92a;border-bottom:1.5px solid #4a4038;padding-bottom:10px;margin-bottom:14px">Backend</div>
+            <ul style="list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px;line-height:1.4">
+              <li>NestJS 10</li><li>Node.js</li><li>Prisma ORM</li><li>REST API</li><li>JWT Auth</li><li>Socket.io</li><li>Python / Flask</li>
+            </ul>
           </div>
-        </a>
-
-        <a href="https://github.com/Lautarocp" target="_blank" rel="noopener" class="card rounded-xl p-5 flex items-center gap-4 group">
-          <div class="w-10 h-10 rounded-lg bg-gray-500/15 flex items-center justify-center text-gray-400 group-hover:bg-gray-500/25 transition-colors">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          <div style="min-width:0">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#e0a92a;border-bottom:1.5px solid #4a4038;padding-bottom:10px;margin-bottom:14px">Infrastructure</div>
+            <ul style="list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px;line-height:1.4">
+              <li>PostgreSQL 15</li><li>MongoDB</li><li>Redis</li><li>Docker / Compose</li><li>Linux / systemd</li><li>Git / GitHub</li><li>Vercel / Render</li>
+            </ul>
           </div>
-          <div>
-            <p class="text-xs text-gray-500 mb-0.5">GitHub</p>
-            <p class="text-sm text-white font-medium">github.com/Lautarocp</p>
-          </div>
-        </a>
-
-        <div class="card rounded-xl p-5 flex items-center gap-4">
-          <div class="w-10 h-10 rounded-lg bg-green-500/15 flex items-center justify-center text-green-400">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          </div>
-          <div>
-            <p class="text-xs text-gray-500 mb-0.5">Location</p>
-            <p class="text-sm text-white font-medium">Barcelona, Spain 🇪🇸</p>
-            <p class="text-xs text-gray-500">EU citizen · Remote OK</p>
+          <div style="min-width:0">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#e0a92a;border-bottom:1.5px solid #4a4038;padding-bottom:10px;margin-bottom:14px">Languages</div>
+            <ul style="list-style:none;margin:0;padding:0;display:grid;gap:12px;font-size:15px;line-height:1.4">
+              <li>Spanish — <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#c9bca8">Native</span></li>
+              <li>English — <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#c9bca8">Professional</span></li>
+            </ul>
           </div>
         </div>
-      </div>
-
-      <a href="mailto:lautarocp20@gmail.com"
-         class="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-base">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        Send me an email
-      </a>
+      </section>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer class="border-t border-white/5 py-8 px-6">
-    <div class="max-w-5xl mx-auto flex items-center justify-between flex-wrap gap-4">
-      <span class="font-mono text-sm text-gray-600">© 2026 Lautaro Pomposiello</span>
-      <span class="font-mono text-xs text-gray-700">Built with HTML + Tailwind CSS</span>
+    <div data-pane="contact" hidden>
+      <section style="max-width:1200px;margin:0 auto;padding:56px 24px 72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:start;animation:paneIn 0.4s ease both;container-type:inline-size">
+        <div style="min-width:0;container-type:inline-size">
+          <h2 style="font-family:'Archivo Black',sans-serif;font-size:clamp(36px,14cqw,84px);line-height:0.9;text-transform:uppercase;letter-spacing:-0.03em;margin:0">Let's talk</h2>
+          <p style="font-size:17px;line-height:1.55;max-width:460px;margin:20px 0 0;text-wrap:pretty">Looking for junior backend, full stack or frontend roles. Open to remote, Barcelona, EU and Mercosur (Argentina, Uruguay, Brazil).</p>
+          <a class="h8" href="mailto:lautarocp20@gmail.com" style="display:inline-block;margin-top:28px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:#1c1713;color:#f2ece0;border:2px solid #1c1713;padding:15px 26px;box-shadow:6px 6px 0 #f2ece0">Send me an email →</a>
+        </div>
+        <div style="display:grid;gap:14px;min-width:0">
+          <a class="h9" href="mailto:lautarocp20@gmail.com" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border:2px solid #1c1713;background:#f2ece0;padding:18px 20px;font-family:'JetBrains Mono',monospace;font-size:13px">
+            <span style="font-weight:700;letter-spacing:0.12em;text-transform:uppercase">Email</span><span>lautarocp20@gmail.com</span>
+          </a>
+          <a class="h10" href="https://github.com/Lautarocp" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border:2px solid #1c1713;background:#f2ece0;padding:18px 20px;font-family:'JetBrains Mono',monospace;font-size:13px">
+            <span style="font-weight:700;letter-spacing:0.12em;text-transform:uppercase">GitHub</span><span>github.com/Lautarocp</span>
+          </a>
+          <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border:2px solid #1c1713;background:#f2ece0;padding:18px 20px;font-family:'JetBrains Mono',monospace;font-size:13px">
+            <span style="font-weight:700;letter-spacing:0.12em;text-transform:uppercase">Location</span><span>Barcelona · EU citizen · Remote OK</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer style="border-top:2px solid #1c1713;background:#f2ece0;flex:none">
+    <div style="max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase">
+      <span>© 2026 Lautaro Pomposiello</span>
+      <span>← → to switch section</span>
+      <span id="label">00 / Home</span>
     </div>
   </footer>
+</div>
 
+<script>
+(function () {
+  var TABS = ["home", "work", "background", "stack", "contact"];
+  var LABELS = { home: "00 / Home", work: "01 / Work", background: "02 / Background", stack: "03 / Stack", contact: "04 / Contact" };
+  var BG = { home: "#f2ece0", work: "#ece4d4", background: "#f2ece0", stack: "#1c1713", contact: "#e0a92a" };
+  var pane = document.getElementById("pane");
+  var label = document.getElementById("label");
+  var tabs = Array.prototype.slice.call(document.querySelectorAll("nav .tab"));
+  var panes = Array.prototype.slice.call(document.querySelectorAll("[data-pane]"));
+  var tab = "home";
+
+  function go(next, align, push) {
+    if (TABS.indexOf(next) < 0) next = "home";
+    tab = next;
+    panes.forEach(function (p) { p.hidden = p.getAttribute("data-pane") !== tab; });
+    tabs.forEach(function (b) { b.classList.toggle("active", b.getAttribute("data-go") === tab); });
+    label.textContent = LABELS[tab];
+    pane.style.background = BG[tab];
+    pane.scrollTop = align === "bottom" ? Math.max(0, pane.scrollHeight - pane.clientHeight) : 0;
+    if (push !== false) history.replaceState(null, "", "#" + tab);
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll("[data-go]"), function (el) {
+    el.addEventListener("click", function () { go(el.getAttribute("data-go")); });
+  });
+
+  window.addEventListener("keydown", function (e) {
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    var i = TABS.indexOf(tab);
+    go(TABS[e.key === "ArrowRight" ? (i + 1) % TABS.length : (i - 1 + TABS.length) % TABS.length]);
+  });
+
+  var lock = 0, accum = 0;
+  pane.addEventListener("wheel", function (e) {
+    var now = Date.now();
+    if (now < lock) { e.preventDefault(); return; }
+    var atBottom = pane.scrollTop + pane.clientHeight >= pane.scrollHeight - 2;
+    var atTop = pane.scrollTop <= 2;
+    var down = e.deltaY > 0;
+    if ((down && !atBottom) || (!down && !atTop)) { accum = 0; return; }
+    e.preventDefault();
+    accum += e.deltaY;
+    if (Math.abs(accum) < 60) return;
+    var next = TABS.indexOf(tab) + (down ? 1 : -1);
+    accum = 0;
+    if (next < 0 || next >= TABS.length) return;
+    lock = now + 700;
+    go(TABS[next], down ? "top" : "bottom");
+  }, { passive: false });
+
+  var touchY = null;
+  pane.addEventListener("touchstart", function (e) { touchY = e.touches[0].clientY; }, { passive: true });
+  pane.addEventListener("touchend", function (e) {
+    if (touchY == null) return;
+    var dy = touchY - (e.changedTouches[0] ? e.changedTouches[0].clientY : touchY);
+    if (Math.abs(dy) < 70) return;
+    var atBottom = pane.scrollTop + pane.clientHeight >= pane.scrollHeight - 2;
+    var atTop = pane.scrollTop <= 2;
+    var down = dy > 0;
+    if ((down && !atBottom) || (!down && !atTop)) return;
+    var next = TABS.indexOf(tab) + (down ? 1 : -1);
+    if (next < 0 || next >= TABS.length) return;
+    go(TABS[next], down ? "top" : "bottom");
+  }, { passive: true });
+
+  go(location.hash.slice(1), "top", false);
+})();
+</script>
 </body>
 </html>
